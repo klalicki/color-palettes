@@ -8,8 +8,8 @@ const createPalette = () => {
   const palette = {};
   palette.accentA = colord({
     h: Math.random() * 360,
-    s: 255,
-    l: Math.random() * 10 + 45,
+    s: Math.random() * 30 + 70,
+    l: Math.random() * 20 + 45,
   });
   palette.accentB = palette.accentA.rotate(Math.random() * 60 + 150);
 
@@ -17,6 +17,7 @@ const createPalette = () => {
 };
 
 const renderPalette = (palette) => {
+  document.querySelector(".color-holder").innerHTML = "";
   Object.entries(palette).forEach((entry) => {
     const squareDiv = document.createElement("div");
     console.log(entry[1]);
@@ -30,5 +31,10 @@ const renderPalette = (palette) => {
 
 const newPalette = createPalette();
 renderPalette(newPalette);
+
+document.querySelector("#btn-generate").addEventListener("click", () => {
+  const newPalette = createPalette();
+  renderPalette(newPalette);
+});
 
 // console.log(x);
