@@ -1,4 +1,5 @@
-import { colord, random } from "colord";
+import { colord } from "colord";
+import "./main.scss";
 console.log(colord);
 
 // function createPalette() creates a color palette as an object of colord objects and returns it in an object
@@ -19,11 +20,9 @@ const renderPalette = (palette) => {
   Object.entries(palette).forEach((entry) => {
     const squareDiv = document.createElement("div");
     console.log(entry[1]);
-    squareDiv.style.width = "100px";
-    squareDiv.style.height = "50px";
     squareDiv.style.backgroundColor = entry[1].toHslString();
     squareDiv.textContent = entry[0];
-    document.querySelector("body").appendChild(squareDiv);
+    document.querySelector(".color-holder").appendChild(squareDiv);
   });
 };
 
